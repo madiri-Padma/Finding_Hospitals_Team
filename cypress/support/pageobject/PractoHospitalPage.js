@@ -22,5 +22,22 @@ class PractoHospitalPage {
       hospitalNames.forEach((name) => cy.log(name));
     });
   }
+  visitHomePage() {
+    cy.visit('https://www.practo.com');
+  }
+ 
+  getTopLocations() {
+    cy.contains('Search for hospitals').click();
+    cy.contains('Hospitals in Bangalore').click();
+    cy.get("input[placeholder='Search location']").click();
+ 
+    let locations = [];
+    cy.get('.c-omni-suggestion-group .c-omni-suggestion-item').each(($el) => {
+      locations.push($el.text().replace(/bangalore/i, '').trim());
+    }).then(() => {
+      locations.forEach((loc) => cy.log(loc));
+    });
+  }
+ 
 }
 export default new PractoHospitalPage();

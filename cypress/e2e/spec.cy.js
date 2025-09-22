@@ -5,4 +5,9 @@ describe('Practo Hospital Feature Tests', () => {
     PractoHospitalPage.visitHospitalsPage();
     PractoHospitalPage.validateTopHospitals();
   });
+  it('should get top locations in Bangalore', () => {
+    PractoHospitalPage.visitHomePage();
+    PractoHospitalPage.getTopLocations();
+  });
+
 });
