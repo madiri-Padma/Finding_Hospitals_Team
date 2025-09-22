@@ -38,6 +38,23 @@ class PractoHospitalPage {
       locations.forEach((loc) => cy.log(loc));
     });
   }
+  visitCorporatePage() {
+    cy.visit('https://www.practo.com/plus/corporate');
+    cy.viewport(1280, 800);
+  }
+ 
+  fillInvalidDemoForm() {
+    cy.get('form').first().should('be.visible').within(() => {
+      cy.get('input[name="name"]').type('John');
+      cy.get('input[name="organizationName"]').type('Acme Corp');
+      cy.get('input[name="contactNumber"]').type('98765432');
+      cy.get('input[placeholder*="Email"]').type('johndoe.example.com');
+      cy.get('select[name="organizationSize"]').select(1);
+      cy.get('select[name="interestedIn"]').select('Taking a demo');
+      cy.get('button[type="submit"]').should('be.disabled');
+    });
+  }
+
  
 }
 export default new PractoHospitalPage();

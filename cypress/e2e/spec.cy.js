@@ -9,5 +9,9 @@ describe('Practo Hospital Feature Tests', () => {
     PractoHospitalPage.visitHomePage();
     PractoHospitalPage.getTopLocations();
   });
-
+    it('should disable Schedule a Demo button for invalid email', () => {
+    PractoHospitalPage.visitCorporatePage();
+    PractoHospitalPage.fillInvalidDemoForm();
+  });
 });
+
