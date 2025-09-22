@@ -13,5 +13,8 @@ describe('Practo Hospital Feature Tests', () => {
     PractoHospitalPage.visitCorporatePage();
     PractoHospitalPage.fillInvalidDemoForm();
   });
+  it('should have a LinkedIn link pointing to the correct URL', () => {
+    PractoHospitalPage.validateLinkedInLink();
+  });
 });
 

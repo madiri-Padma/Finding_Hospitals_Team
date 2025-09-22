@@ -54,7 +54,12 @@ class PractoHospitalPage {
       cy.get('button[type="submit"]').should('be.disabled');
     });
   }
+  validateLinkedInLink() {
+  cy.visit('https://www.practo.com/');
+  cy.get('a[href*="linkedin.com"]')
+    .should('have.attr', 'href')
+    .and('include', 'linkedin.com/company/practo');
+}
 
- 
 }
 export default new PractoHospitalPage();
